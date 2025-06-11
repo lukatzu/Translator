@@ -4,6 +4,13 @@
 
 import json
 import os
+import sys
+
+def resource_path(relative_path):
+    # Get absolute path
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 def load_alphabet(json_path):
     with open(json_path, "r", encoding="utf-8") as f:
