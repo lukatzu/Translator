@@ -1,10 +1,10 @@
 import sys
 
 def main():
-    print("DnD Translator Launcher")
+    print("DnD Translator Launcher\n")
     print("1. Command-line mode")
     print("2. GUI mode")
-    print("3. Quit")
+    print("3. Quit\n")
     choice = input("Select mode (1/2/3): ").strip()
     if choice == "1":
         from translator import main as cmd_main
