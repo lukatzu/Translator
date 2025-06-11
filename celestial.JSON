@@ -1,7 +1,7 @@
 {
   "alphabet": [
     { "english": "a", "large": "✶", "small": "✦" },
-    { "english": "b", "large": "⚚", "small": "⟁" },
+    { "english": "b", "large": "⚚", "small": "ও" },
     { "english": "c", "large": "⟁", "small": "⟊" },
     { "english": "d", "large": "⚜", "small": "⊶" },
     { "english": "e", "large": "☉", "small": "☽" },
@@ -24,7 +24,7 @@
     { "english": "v", "large": "✧", "small": "⧗" },
     { "english": "w", "large": "⍟", "small": "⨂" },
     { "english": "x", "large": "⊗", "small": "⨀" },
-    { "english": "y", "large": "✠", "small": "☍" },
+    { "english": "y", "large": "✠", "small": "⌮" },
     { "english": "z", "large": "☈", "small": "⧓" }
   ],
   "numerals": {

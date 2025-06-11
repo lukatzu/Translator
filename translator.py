@@ -97,6 +97,3 @@ def main():
             continue
         else:
             print("\nInvalid choice.")
-
-if __name__ == "__main__":
-    main()
