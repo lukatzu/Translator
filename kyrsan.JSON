@@ -1,0 +1,42 @@
+{
+  "alphabet": [
+    { "english": "a", "large": "Ⴀ", "small": "ⴀ" },
+    { "english": "b", "large": "Ⴁ", "small": "ⴁ" },
+    { "english": "c", "large": "Ⴂ", "small": "ⴂ" },
+    { "english": "d", "large": "Ⴃ", "small": "ⴃ" },
+    { "english": "e", "large": "Ⴄ", "small": "ⴄ" },
+    { "english": "f", "large": "Ⴅ", "small": "ⴅ" },
+    { "english": "g", "large": "Ⴆ", "small": "ⴆ" },
+    { "english": "h", "large": "Ⴇ", "small": "ⴇ" },
+    { "english": "i", "large": "Ⴈ", "small": "ⴈ" },
+    { "english": "j", "large": "Ⴉ", "small": "ⴉ" },
+    { "english": "k", "large": "Ⴊ", "small": "ⴊ" },
+    { "english": "l", "large": "Ⴋ", "small": "ⴋ" },
+    { "english": "m", "large": "Ⴌ", "small": "ⴌ" },
+    { "english": "n", "large": "Ⴍ", "small": "ⴍ" },
+    { "english": "o", "large": "Ⴎ", "small": "ⴎ" },
+    { "english": "p", "large": "Ⴏ", "small": "ⴏ" },
+    { "english": "q", "large": "Ⴐ", "small": "ⴐ" },
+    { "english": "r", "large": "Ⴑ", "small": "ⴑ" },
+    { "english": "s", "large": "Ⴒ", "small": "ⴒ" },
+    { "english": "t", "large": "Ⴓ", "small": "ⴓ" },
+    { "english": "u", "large": "Ⴔ", "small": "ⴔ" },
+    { "english": "v", "large": "Ⴕ", "small": "ⴕ" },
+    { "english": "w", "large": "Ⴖ", "small": "ⴖ" },
+    { "english": "x", "large": "Ⴗ", "small": "ⴗ" },
+    { "english": "y", "large": "Ⴘ", "small": "ⴘ" },
+    { "english": "z", "large": "Ⴙ", "small": "ⴙ" }
+  ],
+  "numerals": {
+    "0": "⟐",
+    "1": "⟊",
+    "2": "𖼆",
+    "3": "⬱",
+    "4": "⟁",
+    "5": "◬",
+    "6": "⏣",
+    "7": "⧖",
+    "8": "𐍈",
+    "9": "⦿"
+  }
+}
