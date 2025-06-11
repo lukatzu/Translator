@@ -1,3 +1,5 @@
+# This script quickly tests the translation functionality of the translator module
+
 from translator import load_alphabet, translate
 
 def test_language(json_path, lang_name):
