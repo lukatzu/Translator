@@ -59,7 +59,7 @@ def main():
     # Main function to run the translator
     # Displays the menu and handles user input for language selection and translation direction
     while True:
-        print("DnD Translator\n")
+        print("\nDnD Translator\n")
         print("Choose language:\n")
         print("1. Kyrsan")
         print("2. Celestial")
@@ -81,7 +81,7 @@ def main():
         
 
         alphabet_large, alphabet_small, reverse_large, reverse_small, numerals_map, reverse_numerals_map = load_alphabet(json_path)
-        print(f"1. English to {lang_name}")
+        print(f"\n1. English to {lang_name}")
         print(f"2. {lang_name} to English")
         print("3. Back to language selection\n")
         choice = input("Choose translation direction (1, 2 or 3): ").strip()
