@@ -1,6 +1,21 @@
 import sys
+import os
+
+def detect_languages():
+    # Detect available language JSON files in the current directory
+    langs = []
+    if os.path.exists("kyrsan.json"):
+        langs.append(("Kyrsan", "kyrsan.json"))
+    if os.path.exists("celestial.json"):
+        langs.append(("Celestial", "celestial.json"))
+    return langs
 
 def main():
+    languages = detect_languages()
+    if not languages:
+        print("No languages detected!")
+        sys.exit(1)
+
     print("DnD Translator Launcher\n")
     print("1. Command-line mode")
     print("2. GUI mode")
@@ -8,13 +23,15 @@ def main():
     choice = input("Select mode (1/2/3): ").strip()
     if choice == "1":
         from translator import main as cmd_main
-        cmd_main()
+        cmd_main(languages)  # Pass the available languages
     elif choice == "2":
         import gui
         import tkinter as tk
+        # Patch gui.LANGUAGES dynamically
+        gui.LANGUAGES = [("English", None)] + languages
         root = tk.Tk()
         gui_app = gui.TranslatorGUI(root)
-        root.deiconify()  # Show the main window
+        root.deiconify()
         root.lift()
         root.attributes('-topmost', True)
         root.after_idle(root.attributes, '-topmost', False)

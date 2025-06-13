@@ -55,30 +55,35 @@ def reverse_translate(text, reverse_large, reverse_small, reverse_numerals_map):
     return result
 
 
-def main():
+def main(languages=None):
     # Main function to run the translator
     # Displays the menu and handles user input for language selection and translation direction
+    if languages is None:
+        # Fallback: detect languages if not provided
+        languages = []
+        if os.path.exists("kyrsan.json"):
+            languages.append(("Kyrsan", "kyrsan.json"))
+        if os.path.exists("celestial.json"):
+            languages.append(("Celestial", "celestial.json"))
     while True:
         print("\nDnD Translator\n")
         print("Choose language:\n")
-        print("1. Kyrsan")
-        print("2. Celestial")
-        print("3. Quit\n")
+        for idx, (lang_name, _) in enumerate(languages, 1):
+            print(f"{idx}. {lang_name}")
+        print(f"{len(languages)+1}. Quit\n")
         lang_choice = input("Enter number: ").strip()
-        # Handle language selection and translation direction
-        if lang_choice == "3":
+        if not lang_choice.isdigit():
+            print("Invalid choice.")
+            continue
+        lang_choice = int(lang_choice)
+        if lang_choice == len(languages) + 1:
             print("Goodbye!")
             break
-        if lang_choice == "1":
-            json_path = "kyrsan.json"
-            lang_name = "Kyrsan"
-        elif lang_choice == "2":
-            json_path = "celestial.json"
-            lang_name = "Celestial"
+        if 1 <= lang_choice <= len(languages):
+            lang_name, json_path = languages[lang_choice - 1]
         else:
             print("Invalid choice.")
             continue
-        
 
         alphabet_large, alphabet_small, reverse_large, reverse_small, numerals_map, reverse_numerals_map = load_alphabet(json_path)
         print(f"\n1. English to {lang_name}")

@@ -22,6 +22,8 @@ class TranslatorGUI: # Main GUI class for the translator application
         self.right_lang = tk.StringVar(value="Kyrsan")
 
         lang_names = [name for name, _ in LANGUAGES]
+        self.left_lang.set(lang_names[0])
+        self.right_lang.set(lang_names[1] if len(lang_names) > 1 else lang_names[0])
 
         top_frame = tk.Frame(root)
         top_frame.pack(padx=10, pady=10, fill="x")
@@ -92,7 +94,7 @@ class TranslatorGUI: # Main GUI class for the translator application
             result = text
         elif src == "English":
             # English to constructed language
-            json_path = dict(LANGUAGES)[tgt]
+            json_path = dict(LANGUAGES).get(tgt)
             if json_path:
                 alphabet_large, alphabet_small, _, _, numerals_map, _ = load_alphabet(json_path)
                 result = translate(text, alphabet_large, alphabet_small, numerals_map)
@@ -100,7 +102,7 @@ class TranslatorGUI: # Main GUI class for the translator application
                 result = text
         elif tgt == "English":
             # Constructed language to English
-            json_path = dict(LANGUAGES)[src]
+            json_path = dict(LANGUAGES).get(src)
             if json_path:
                 _, _, reverse_large, reverse_small, _, reverse_numerals_map = load_alphabet(json_path)
                 result = reverse_translate(text, reverse_large, reverse_small, reverse_numerals_map)
@@ -108,8 +110,8 @@ class TranslatorGUI: # Main GUI class for the translator application
                 result = text
         else:
             # Between two constructed languages: English as bridge
-            json_path_src = dict(LANGUAGES)[src]
-            json_path_tgt = dict(LANGUAGES)[tgt]
+            json_path_src = dict(LANGUAGES).get(src)
+            json_path_tgt = dict(LANGUAGES).get(tgt)
             _, _, reverse_large, reverse_small, _, reverse_numerals_map = load_alphabet(json_path_src)
             intermediate = reverse_translate(text, reverse_large, reverse_small, reverse_numerals_map)
             alphabet_large, alphabet_small, _, _, numerals_map, _ = load_alphabet(json_path_tgt)
