@@ -1,4 +1,4 @@
-# This code is a simple command-line translator between English and Kyrsano Krysan).
+# This code is a cipher / dechiper tool for custom dnd languages.
 
 # Author: Luka Niemelä
 
@@ -15,7 +15,7 @@ def resource_path(relative_path):
 def load_alphabet(json_path):
     with open(json_path, "r", encoding="utf-8") as f: # Load the JSON file containing the alphabet mappings.
         data = json.load(f) 
-        # Create mappings for large and small letters, as well as numerals.
+    # Create mappings for large and small letters, as well as numerals.
     alphabet_large = {item["english"].upper(): item["large"] for item in data["alphabet"]}
     alphabet_small = {item["english"].lower(): item["small"] for item in data["alphabet"]}
     reverse_large = {item["large"]: item["english"].upper() for item in data["alphabet"]}
@@ -55,16 +55,14 @@ def reverse_translate(text, reverse_large, reverse_small, reverse_numerals_map):
     return result
 
 
-def main(languages=None):
+def main(languages):
+    # languages must be provided by the caller (main.py)
+    if not languages:
+        print("No languages detected!")
+        return
+
     # Main function to run the translator
     # Displays the menu and handles user input for language selection and translation direction
-    if languages is None:
-        # Fallback: detect languages if not provided
-        languages = []
-        if os.path.exists("kyrsan.json"):
-            languages.append(("Kyrsan", "kyrsan.json"))
-        if os.path.exists("celestial.json"):
-            languages.append(("Celestial", "celestial.json"))
     while True:
         print("\nDnD Translator\n")
         print("Choose language:\n")
@@ -76,9 +74,11 @@ def main(languages=None):
             print("Invalid choice.")
             continue
         lang_choice = int(lang_choice)
+        # Adds an option to quit the program on last position
         if lang_choice == len(languages) + 1:
             print("Goodbye!")
             break
+        # Validates the language choice
         if 1 <= lang_choice <= len(languages):
             lang_name, json_path = languages[lang_choice - 1]
         else:

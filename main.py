@@ -8,6 +8,12 @@ def detect_languages():
         langs.append(("Kyrsan", "kyrsan.json"))
     if os.path.exists("celestial.json"):
         langs.append(("Celestial", "celestial.json"))
+    # to add more languages, simply add their names and JSON paths here
+    # example:
+    """
+    if os.path.exists("language_path.json"): 
+        languages.append(("Language_NAME", "language_path.json"))
+    """
     return langs
 
 def main():

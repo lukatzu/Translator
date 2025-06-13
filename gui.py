@@ -35,16 +35,11 @@ class TranslatorGUI: # Main GUI class for the translator application
         self.right_combo = ttk.Combobox(top_frame, values=lang_names, textvariable=self.right_lang, state="readonly", width=15)
         self.right_combo.grid(row=0, column=2, padx=5)
 
-        # Warning label for celestial numerals
-        self.warning_label = tk.Label(root, text="", fg="red", font=("TkDefaultFont", 10), anchor="w", justify="left")
-        self.warning_label.pack(padx=10, pady=(0, 5), fill="x")
-
         # Text areas
         main_frame = tk.Frame(root)
         main_frame.pack(padx=10, pady=10, fill="both", expand=True)
 
         # set a good default font for Unicode characters
-        # doenst work for numbers in Celestial, but works for Kyrsan (exepct for nr. 2)
         unicode_font = ("Segoe UI Symbol", 16)
 
         self.input_text = scrolledtext.ScrolledText(main_frame, height=8, font=unicode_font)
@@ -60,6 +55,8 @@ class TranslatorGUI: # Main GUI class for the translator application
 
         # Bind events
         self.input_text.bind("<KeyRelease>", self.on_translate)
+        self.left_combo.bind("<<ComboboxSelected>>", lambda e: self.on_translate())
+        self.right_combo.bind("<<ComboboxSelected>>", lambda e: self.on_translate())
     
     # Swap the selected languages in the comboboxes
     def swap_languages(self):

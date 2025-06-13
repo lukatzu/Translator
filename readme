@@ -1,3 +1,9 @@
-This is a simple written translator for a homebrew DND session.
+# This is a simple written translator for a homebrew DND session.
+
+It chipers and dechipers text.
+
+Features a GUI and a command line based modes for usage.
+
+Kyrsan is based on old georgian letters (Asomtavruli & Nuskhuri)
 
 If you have suggestions, fixes, or more languages, feel free to send a message.

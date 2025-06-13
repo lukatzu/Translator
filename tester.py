@@ -25,6 +25,11 @@ def test_language(json_path, lang_name):
     print(f"Reversed:    {reversed_numbers}")
     print(f"Match:       {numbers == reversed_numbers}")
 
+
 if __name__ == "__main__":
     test_language("kyrsan.json", "Kyrsan")
     test_language("celestial.json", "Celestial")
+    # Add more languages here as needed
+    """
+    test_language("language_path.json", "Language_NAME")
+    """
