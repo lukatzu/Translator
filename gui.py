@@ -60,8 +60,6 @@ class TranslatorGUI: # Main GUI class for the translator application
 
         # Bind events
         self.input_text.bind("<KeyRelease>", self.on_translate)
-        self.left_combo.bind("<<ComboboxSelected>>", lambda e: (self.update_warning(), self.on_translate()))
-        self.right_combo.bind("<<ComboboxSelected>>", lambda e: (self.update_warning(), self.on_translate()))
     
     # Swap the selected languages in the comboboxes
     def swap_languages(self):
@@ -69,7 +67,6 @@ class TranslatorGUI: # Main GUI class for the translator application
         right = self.right_lang.get()
         self.left_lang.set(right)
         self.right_lang.set(left)
-        self.update_warning()
         self.on_translate()
 
     # Translate the input text based on selected languages
