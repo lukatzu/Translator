@@ -62,17 +62,6 @@ class TranslatorGUI: # Main GUI class for the translator application
         self.input_text.bind("<KeyRelease>", self.on_translate)
         self.left_combo.bind("<<ComboboxSelected>>", lambda e: (self.update_warning(), self.on_translate()))
         self.right_combo.bind("<<ComboboxSelected>>", lambda e: (self.update_warning(), self.on_translate()))
-
-        # Initial translation and warning for missing numerals
-        self.update_warning()
-        self.on_translate()
-
-    # Warning for Celestial numerals
-    def update_warning(self):
-        if self.right_lang.get() == "Celestial":
-            self.warning_label.config(text="Note: Celestial numerals may not display correctly in version 1.0.")
-        else:
-            self.warning_label.config(text="")
     
     # Swap the selected languages in the comboboxes
     def swap_languages(self):
